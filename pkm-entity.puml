@@ -1,0 +1,76 @@
+@startuml
+' 首先设置一个可爱的皮肤，让图表更美观
+@startuml
+' 首先设置一个可爱的皮肤，让图表更美观
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Microsoft YaHei"
+
+' 定义Note类
+class Note {
+
+ - Long id
+ - String title
+ - String content
+ - LocalDateTime createdAt
+ - LocalDateTime updatedAt
+ - Set<Tag> tags
+ --
+ + Note()
+ + Note(title: String, content: String)
+ + addTag(tag: Tag)
+}
+
+' 定义Tag类
+class Tag {
+ - Long id
+ - String name
+ --
+ + Tag()
+}
+
+' 定义继承关系：TextNote继承自Note
+Note <|-- TextNote
+class TextNote {
+ - String summary
+}
+
+' 定义关联关系：Note和Tag是多对多
+Note "1" *-- "*" Tag : tagged with >
+
+@enduml
+skinparam shadowing false
+skinparam defaultFontName "Microsoft YaHei"
+
+' 定义Note类
+class Note {
+ - Long id
+ - String title
+ - String content
+ - LocalDateTime createdAt
+ - LocalDateTime updatedAt
+ - Set<Tag> tags
+ --
+ + Note()
+ + Note(title: String, content: String)
+ + addTag(tag: Tag)
+}
+
+' 定义Tag类
+class Tag {
+ - Long id
+ - String name
+ --
+ + Tag()
+}
+
+' 定义继承关系：TextNote继承自Note
+Note <|-- TextNote
+class TextNote {
+ - String summary
+}
+
+' 定义关联关系：Note和Tag是多对多
+Note "1" *-- "*" Tag : tagged with >
+
+@enduml
